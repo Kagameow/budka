@@ -1,0 +1,2 @@
+[home]
+ubudka ansible_host=192.168.2.16 ansible_user=kagameow ansible_connection=ssh ansible_ssh_private_key_file=/Users/kagameow/.ssh/ubudka

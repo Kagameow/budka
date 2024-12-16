@@ -1,0 +1,8 @@
+username: kagameow
+packages:
+  - qemu-guest-agent
+  - neofetch
+  - htop
+  - nano
+  - tmux
+  - speedtest-cli
