@@ -1,0 +1,11 @@
+- name: Notify users about the restart
+  shell: "echo 'System will restart in 10 second' | wall"
+
+- name: Wait for 10 seconds before restarting
+  pause:
+    seconds: 10
+
+- name: Reboot the server
+  reboot:
+    msg: "Ansible-triggered reboot"
+    reboot_timeout: 600

@@ -1,9 +1,9 @@
-all:
+k3s_cluster:
   vars:
     ansible_user: ubuntu
     ansible_ssh_private_key_file: /Users/kagameow/.ssh/proxmox
   children:
-    home:
+    masters:
       hosts:
         k3s_00:
           ansible_host: 192.168.2.42
@@ -11,6 +11,8 @@ all:
           ansible_host: 192.168.2.43
         k3s_02:
           ansible_host: 192.168.2.44
+    workers:
+      hosts:
         k3s_03:
           ansible_host: 192.168.2.45
         k3s_04:
