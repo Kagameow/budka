@@ -23,8 +23,8 @@
     validate: "/usr/sbin/visudo -cf %s"
   register: sudoers
 
-- name: Restart SSH daemon
+- name: Restart SSH daemon (use name sshd on ubuntu older than 24)
   service:
-    name: sshd
+    name: ssh
     state: restarted
   when: sshd_config.changed
