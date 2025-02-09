@@ -1,0 +1,12 @@
+- name: Ping all hosts
+  hosts: all
+  tasks:
+    - name: Ping all hosts
+      ansible.builtin.ping:
+
+    - name: Print message
+      ansible.builtin.debug:
+        msg: "I was able to ping"
+
+    - name: Print message on all hosts
+      shell: "echo 'Hello {{ inventory_hostname }}, Im your Ansible overlord >:3' | wall"
