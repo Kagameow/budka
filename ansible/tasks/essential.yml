@@ -23,8 +23,11 @@
     validate: "/usr/sbin/visudo -cf %s"
   register: sudoers
 
-- name: Restart SSH daemon (use name sshd on ubuntu older than 24)
+- name: Get service facts
+  service_facts:
+
+- name: Restart SSH daemon
   service:
-    name: ssh
+    name: "{{ 'ssh' if 'ssh.service' in ansible_facts.services else 'sshd' }}"
     state: restarted
   when: sshd_config.changed
