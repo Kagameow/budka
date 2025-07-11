@@ -18,7 +18,7 @@ resource "proxmox_virtual_environment_vm" "ubuntu_vm" {
         discard = var.disk_discard
         iothread = var.iothread
         interface = var.interface
-        import_from = proxmox_virtual_environment_download_file.ubuntu_cloud_image.id
+        import_from = var.vm_cloud_image_id
     }
 
     initialization {
@@ -35,11 +35,3 @@ resource "proxmox_virtual_environment_vm" "ubuntu_vm" {
     }
 }
 
-
-resource "proxmox_virtual_environment_download_file" "ubuntu_cloud_image" {
-  content_type = "import"
-  datastore_id = "local"
-  node_name    = "pve"
-  url          = "https://cloud-images.ubuntu.com/${var.ubuntu_cloud_image_name}/current/${var.ubuntu_cloud_image_name}-server-cloudimg-amd64.img"
-  file_name = "${var.ubuntu_cloud_image_name}-server-cloudimg-amd64.qcow2"
-}

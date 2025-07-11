@@ -88,7 +88,7 @@ variable "network_bridge" {
 }
 
 
-variable "ubuntu_cloud_image_name" {
+variable "vm_cloud_image_id" {
     description = "Name for the downloaded Ubuntu cloud image"
     type        = string
 }
