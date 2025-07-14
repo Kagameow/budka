@@ -28,7 +28,7 @@ provider "proxmox" {
 
 
 
-module "ubuntu_vm" {
+module "ubuntu_cloud_config" {
     source = "../../../modules/cloud_init_config"
     ssh_public_key_path = "/home/pes/.ssh/id_ed25519.pub"
     cloud_init_config_name = "user-data-cloud-config"

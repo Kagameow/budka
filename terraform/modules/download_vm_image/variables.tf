@@ -13,3 +13,9 @@ variable "node_name" {
   type        = string
   default     = "pve"
 }
+
+variable "content_type" {
+  description = "Content type of the file to be downloaded"
+  type        = string
+  default     = "import"
+}

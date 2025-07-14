@@ -45,7 +45,7 @@ variable "disk_size" {
 
 variable "disk_discard" {
     description = "Whether to discard unused blocks"
-    type        = bool
+    type        = string
     default     = true
 }
 
@@ -59,11 +59,6 @@ variable "interface" {
     description = "Disk interface type"
     type        = string
     default     = "scsi0"
-}
-
-variable "import_from" {
-    description = "Path to import disk from"
-    type        = string
 }
 
 variable "ipv4_address" {
@@ -86,7 +81,6 @@ variable "network_bridge" {
     type        = string
     default     = "vmbr0"
 }
-
 
 variable "vm_cloud_image_id" {
     description = "Name for the downloaded Ubuntu cloud image"
