@@ -40,5 +40,8 @@ resource "proxmox_virtual_environment_vm" "k3s_control_plane" {
         timeout = "5m"
         host = var.ipv4_address
     }
+    provisioner "remote-exec" {
+      
+    }
 }
 
