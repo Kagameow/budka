@@ -48,3 +48,22 @@ module "ubuntu_vm" {
   user_data_file_id = "local:snippets/user-data-cloud-config.yaml"
   vm_cloud_image_id = module.vm_cloud_image.image_id
 }
+
+
+resource "proxmox_virtual_environment_vm" "ubuntu_vm" {
+  depends_on = [ module.ubuntu_vm ]
+    name        = "ubuntu-vm-test"
+    node_name = "budka"
+
+  connection {
+    type        = "ssh"
+    user        = "ubuntu"
+    host        = "192.168.2.240"
+    private_key = file("~/.ssh/id_ed25519")
+  }
+  provisioner "remote-exec" {
+    inline = [
+      "echo 'Provisioning Ubuntu VM'",
+    ]
+  }
+}
